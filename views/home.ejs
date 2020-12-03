@@ -1,0 +1,19 @@
+<%- include("./partials/header") %>
+
+<h1>This is free space project</h1>
+<ul>
+<% containers.forEach((container)=>{ %>
+    <div class="container">
+        <header class="jumbotron">
+            <h1><%=container.containerName%></h1>
+            <%container.Todos.forEach((todo)=>{ %>
+                <li><%=todo%></li>
+            <% }) %>
+            <a href="/home/<%=container.containerid%>/new">Add new <%=container.containerName%> todo</a>
+        </header>
+    </div>
+<% }) %>
+</ul>
+<a href="/home/newcontainer">Add new container</a>
+
+<%- include("./partials/footer") %>
