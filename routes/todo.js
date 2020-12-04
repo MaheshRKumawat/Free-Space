@@ -4,16 +4,10 @@ let mongoose = require('mongoose');
 let User = require("../models/user");
 let Containers = require("../models/containers");
 let Todo = require("../models/todo");
+let middleware = require("../middleware");
 
-function isLoggedIn(req,res,next){
-    if(req.isAuthenticated()){
-        return next();
-    }
-    res.redirect("/login");
-}
-
-router.get('/new',isLoggedIn,(req,res)=>{
-    Containers.findById(req.params.id,(err,foundContainer)=>{
+router.get('/new',middleware.isLoggedIn,(req,res)=>{
+    Containers.findById(req.params.id,function(err,foundContainer){
         if(err){
             console.log(err);
         }
@@ -24,7 +18,7 @@ router.get('/new',isLoggedIn,(req,res)=>{
     })
 });
 
-router.post("/new",isLoggedIn,(req,res)=>{
+router.post("/new",middleware.isLoggedIn,(req,res)=>{
     Containers.findById(req.params.id,function(err,foundContainer){
         if(err){
             console.log(err);
@@ -46,3 +40,5 @@ router.post("/new",isLoggedIn,(req,res)=>{
         }
     });
 });
+
+module.exports = router;

@@ -3,19 +3,13 @@ let router = express.Router();
 let mongoose = require('mongoose');
 let User = require("../models/user");
 let Containers = require("../models/containers");
+let middleware = require("../middleware");
 
-function isLoggedIn(req,res,next){
-    if(req.isAuthenticated()){
-        return next();
-    }
-    res.redirect("/login");
-}
-
-router.get('/newcontainer',isLoggedIn,(req,res)=>{
+router.get('/newcontainer',middleware.isLoggedIn,(req,res)=>{
     res.render("newcontainer.ejs");
 });
 
-router.post('/newcontainer',isLoggedIn,(req,res)=>{
+router.post('/newcontainer',middleware.isLoggedIn,(req,res)=>{
     let newContainer = {
         containerName: req.body.container,
         User:{
@@ -32,3 +26,5 @@ router.post('/newcontainer',isLoggedIn,(req,res)=>{
         }
     });
 });
+
+module.exports = router;

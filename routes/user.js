@@ -2,18 +2,14 @@ let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 let User = require("../models/user");
+let Containers = require("../models/containers");
+let Todo = require("../models/todo");
 let passport = require("passport");
 let LocalStrategy = require("passport-local");
 let nodemailer = require("nodemailer");
 let async = require("async");
 let crypto = require("crypto");
-
-function isLoggedIn(req,res,next){
-    if(req.isAuthenticated()){
-        return next();
-    }
-    res.redirect("/login");
-}
+let middleware = require("../middleware");
 
 router.get("/",(req,res)=>{
     res.render("landing.ejs");
@@ -222,7 +218,7 @@ const homeDisplay = async(userid,User,Containers,Todo)=>{
     return displayContainersfunc;
 }
     
-router.get('/home',isLoggedIn,(req,res)=>{
+router.get('/home',middleware.isLoggedIn,(req,res)=>{
     var userid=req.user._id;
     homeDisplay(userid,User,Containers,Todo)
     .then((displayContainersfunc)=>{
