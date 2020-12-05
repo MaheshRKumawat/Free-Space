@@ -1,19 +1,21 @@
 <%- include("./partials/header") %>
 
 <div class="row">
-    <h1 style="text-align: center">Login</h1>
-    <div style="width: 30%; margin: 25px auto;">
+    <div style="width: 30%; margin: 20px auto;">
         <form action="/login" method="POST">
             <div class="form-group">
-                <input class="form-control" type="text" name="username" placeholder="username">
+                <input class="form-control" type="text" name="username" autofocus placeholder="username">
             </div>
             <div class="form-group">
                 <input class="form-control" type="password" name="password" placeholder="password">
             </div>
+            <br>
             <div class="form-group">
-                <button class="btn btn-lg btn-primary btn-block">LogIn</button>
+                <button class="btn btn-lg btn-outline-secondary btn-block">LogIn</button>
             </div>
         </form>
+        <br>
+        <a href="/forgot" class="btn btn-outline-secondary btn-lg btn-block" role="button" aria-pressed="true">Forgot Password</a>
     </div>
 </div>
 

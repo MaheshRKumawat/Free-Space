@@ -1,8 +1,25 @@
 <%- include("./partials/header") %>
-
-<form action="/home/newcontainer" method="POST">
+<!-- 
+<form action="/home/container/new" method="POST">
     <input name="container" type="text" placeholder="container name">
-    <button>Submit</button>
-</form>
+    <button>Add</button>
+</form> -->
+
+<div class="row">
+    <div style="width: 30%; margin: 20px auto;">
+        <h3 style="text-align:center;">Add New Container</h3>
+        <br>
+        <form action="/home/container/new" method="POST">
+            <div class="form-group">
+                <input name="container" type="text" autofocus class="form-control" placeholder="Container Name">
+            </div>
+            <br>
+            <div class="form-group">
+                <button class="btn btn-lg btn-outline-secondary btn-block">Add</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 
 <%- include("./partials/footer") %>

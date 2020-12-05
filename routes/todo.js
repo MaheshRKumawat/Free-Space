@@ -6,8 +6,8 @@ let Containers = require("../models/containers");
 let Todo = require("../models/todo");
 let middleware = require("../middleware");
 
-router.get('/new',middleware.isLoggedIn,(req,res)=>{
-    Containers.findById(req.params.id,function(err,foundContainer){
+router.get('/:id/newtodo',middleware.isLoggedIn,(req,res)=>{
+    Containers.findById(req.params.id,(err,foundContainer)=>{
         if(err){
             console.log(err);
         }
@@ -18,7 +18,7 @@ router.get('/new',middleware.isLoggedIn,(req,res)=>{
     })
 });
 
-router.post("/new",middleware.isLoggedIn,(req,res)=>{
+router.post("/:id/newtodo",middleware.isLoggedIn,(req,res)=>{
     Containers.findById(req.params.id,function(err,foundContainer){
         if(err){
             console.log(err);
@@ -39,6 +39,19 @@ router.post("/new",middleware.isLoggedIn,(req,res)=>{
             });
         }
     });
+});
+
+router.delete("/:id/deletetodo",middleware.isLoggedIn,(req,res)=>{
+    Todo.findByIdAndRemove(req.params.id,function(err){
+        if(err){
+            console.log(err);
+            res.redirect("/home");
+        }
+        else{
+            console.log('Deleted');
+            res.redirect("/home");            
+        }
+    })
 });
 
 module.exports = router;

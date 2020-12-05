@@ -7,20 +7,37 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">FreeSpace</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="/home">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="/Profile">Profile</a>
-        <a class="nav-item nav-link" href="/Settings">Settings</a>
-        <a class="nav-item nav-link" href="/login">Login</a>
-        <a class="nav-item nav-link" href="/signup">SignUp</a>
-        <a class="nav-item nav-link" href="/logout">LogOut</a>
-      </div>
+  
+  <nav class="navbar navbar-default navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid" style="padding-left: 100px; padding-right: 100px;">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">FreeSpace</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a class="nav-item nav-link active" href="/home">Home <span class="sr-only">(current)</span></a></li>
+                <li><a class="nav-item nav-link" href="/Profile">Profile</a></li>
+                <li><a class="nav-item nav-link" href="/Settings">Settings</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <% if(!currentUser){ %>
+                    <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>" style="padding-left: 800px;"><a class="nav-item nav-link" href="/login">Login</a></li>
+                    <li class="<%= typeof page !== 'undefined' && page === 'signup' ? 'active' : '' %>" style="padding-left: 10px;"><a class="nav-item nav-link" href="/signup">Sign Up</a></li>
+                <% }  else{ %>
+                    <li><a class="nav-item nav-link" style="padding-left: 700px;" href="#">Signed in as <%=currentUser.username %></a></li>
+                    <li><a class="nav-item nav-link" href="/logout">LogOut</a></li>
+                <% } %>
+            </ul>
+        </div>
     </div>
   </nav>
+  <div class="container">
+    <% if(error && error.length>0) { %>
+        <div class="alert alert-danger" role="alert"><%=error%></div>
+    <% } %>
+    <% if(success && success.length>0) { %>
+        <div class="alert alert-success" role="alert"><%=success%></div>
+    <% } %>
+  </div>
+  <div class="container">
+  
