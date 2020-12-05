@@ -5,6 +5,13 @@ const todoSchema = new mongoose.Schema({
     containerRelated: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Containers"
+        },
+    User:{ 
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+            },
+        username: String
         }
 });
 

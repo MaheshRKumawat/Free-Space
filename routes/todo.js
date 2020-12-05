@@ -26,7 +26,8 @@ router.post("/:id/newtodo",middleware.isLoggedIn,(req,res)=>{
         else{
             let newTodo={
                 todoTask: req.body.todo,
-                containerRelated: foundContainer._id
+                containerRelated: foundContainer._id,
+                User: foundContainer.User       
             }
             Todo.create(newTodo,function(err,todoTask){
                 if(err){
