@@ -1,112 +1,3 @@
-// var React = require('react');
-
-// function App(props){
-//     const foundContainers=props.foundContainers;
-//     const foundUser=props.foundUser;
-//     const foundTodos=props.foundTodos;
-//     let containers=[];
-//     foundContainers.forEach(foundContainer=>{
-//         var singleconatiner={
-//             containerName: "",
-//             containerid: "",
-//             Todos: [],
-//             Todosid: []
-//         }
-//         singleconatiner.containerName=foundContainer.containerName;
-//         singleconatiner.containerid=foundContainer._id;
-//         foundTodos.forEach(foundTodo=>{
-//             if((foundTodo.containerRelated).toString() === (foundContainer._id).toString()){
-//                 singleconatiner.Todos.push(foundTodo.todoTask);
-//                 singleconatiner.Todosid.push(foundTodo._id);
-//             }
-//         })
-//         containers.push(singleconatiner);
-//         // singleconatiner.containerName="",
-//         // singleconatiner.containerid="",
-//         // singleconatiner.Todos=[],
-//         // singleconatiner.Todosid=[]
-//     })
-//     const navbar=[];
-//     const display = [];
-//     let displayTodo=[];
-//     let displayTodoIds=[];
-//     const displayTodoAll=[];
-//     const displayhrefdeletecontainer=[];
-//     let href;
-//     navbar.push(
-//     <div>
-//         <a className="nav-item nav-link active" href="/home">Home</a>
-//         {/* <a className="nav-item nav-link" href="/Profile">Profile</a> */}
-//         {/* <a className="nav-item nav-link" href="/Settings">Settings</a> */}
-//         {/* <a className="nav-item nav-link" href="/signup">SignUp</a> */}
-//         {/* <a className="nav-item nav-link" href="/login">Login</a> */}
-//         <a className="nav-item nav-link" href="/logout">LogOut</a>
-//     </div>
-//     );
-
-//     containers.forEach(container=>{
-//         displayTodo=[];
-//         container.Todosid.forEach(singleTodoId=>{
-//             href="/home/"+singleTodoId+"/deletetodo?_method=DELETE";
-//             displayTodoIds.push(
-//                 <div>
-//                     <form action={href} method="POST">
-//                         <button>Delete</button>
-//                     </form>
-//                 </div>
-//             )
-//         })
-//         let i=0;
-//         container.Todos.forEach(singleTodo=>{
-//             displayTodo.push(
-//             <div>
-//                 <p>{singleTodo}</p>
-//                 {displayTodoIds[i++]}
-//             </div>
-//                             );
-//         })
-//         displayTodoIds=[];
-//         href="/home/container/"+container.containerid+"?_method=DELETE";
-//         displayhrefdeletecontainer.push(href)
-//         href="/home/"+container.containerid+"/newtodo";
-//         displayTodoAll.push(<div>
-//             <div>
-//                 {displayTodo}
-//             </div>
-//             <div><button><a href={href}>ADD new Todo</a></button></div>
-//             </div>);
-//     });
-//     let i=0;
-//     for(var container of containers){
-//         display.push(<div>
-//             <div>
-//                 <h1>{container.containerName}</h1>
-//                 <form action={displayhrefdeletecontainer[i]} method="POST">
-//                     <button>Delete</button>
-//                 </form>
-//             </div>
-//             <div>
-//                 {displayTodoAll[i]}
-//             </div>
-//         </div>)
-//         i=i+1;
-//     }  
-//     href="/home/container/new"; 
-//     return(
-//         <div>
-//             <div>
-//                 {navbar}
-//             </div>
-//             <div>
-//                 {display}
-//             </div>
-//             <a href={href}>Add new Container</a>
-//         </div>
-//     )
-// }
-
-// export default App
-
 var React = require('react');
 
 function App(props) {
@@ -161,37 +52,60 @@ function App(props) {
         fontSize: 30 + "px", textAlign: 'center', paddingTop: 5 + "px", paddingBottom: 5 + "px",
         textTransform: 'uppercase', opacity: 80 + "%" */
         fontFamily: 'Franklin Gothic', textAlign: 'center', fontWeight: 'normal',
-        fontSize: 18 + "px", paddingTop: 3 + "px", marginTop:50+"px",
-        paddingBottom: 3 + "px", backgroundColor: 'silver',
-        display: 'block', color: "black", width:400+"px", marginLeft:500+"px",
+        fontSize: 24 + "px", paddingTop: 3 + "px", marginTop:50+"px",
+        paddingBottom: 3 + "px", 
+        display: 'block', width:405+"px", marginLeft:500+"px",
+        backgroundColor: '#343a40',  color: 'white',
+        marginBottom:'25px'
     }
 
     const itemsstyle = {
-        marginLeft: 500 + "px", backgroundColor: 'silver', width: 400 + "px",
+        marginLeft: 500 + "px", width: 400 + "px",
         fontFamily: 'sans-serif', fontWeight: 'normal',
         fontSize: 20 + "px", textAlign: 'center',
         paddingTop: 3 + "px", paddingBottom: 3 + "px",
         display: 'block', opacity: 80 + "%", position: 'relative',
+        
+  color: 'black',
+  border:'2px solid #e7e7e7',
+  marginTop:'24px'
+
     }
 
     const buttonstyle = {
-        fontWeight: 'normal', fontSize: 20 + "px",
+        fontWeight: 'normal', fontSize: 13 + "px",
         textAlign: 'center', paddingTop: 3 + "px",
         paddingBottom: 3 + "px", marginLeft: 500 + "px",
-        width: 400 + "px", fontFamily: 'Verdana', backgroundColor: 'alto', display: 'block'
+        width: 400 + "px", fontFamily: 'Verdana', backgroundColor: '#9af7c3', display: 'block'
     }
 
+    const newtodobuttonstyle = {
+      fontWeight: 'normal', fontSize: 13 + "px",
+      textAlign: 'center', paddingTop: 3 + "px",
+      paddingBottom: 3 + "px", marginLeft: 500 + "px",marginTop:'24px',
+      width: 400 + "px", fontFamily: 'Verdana', backgroundColor: '#9af7c3', display: 'block',border: '2px solid #e7e7e7', borderRadius:'100px',
+  }
+
+    const deletebuttonstyle = {
+      fontWeight: 'normal', fontSize: 13 + "px",
+      textAlign: 'center', paddingTop: 3 + "px",
+      paddingBottom: 3 + "px", marginLeft: 500 + "px",
+      width: 400 + "px", fontFamily: 'Verdana', backgroundColor: 'white', display: 'block',
+      borderRadius:'100px',border: '2px solid #ffadad',
+  }
+
     const deletestyle = {
-        fontFamily: 'Arial', fontWeight: 'normal', fontSize: 13 + "px",
+        fontFamily: 'Verdana', fontWeight: 'normal', fontSize: 13 + "px",
         textAlign: 'center', paddingTop: 3 + "px",
-        paddingBottom: 3 + "px", marginLeft: 900 + "px",
-        backgroundColor: 'alto', display: 'block', position: 'relative',
+        paddingBottom: 3 + "px", marginLeft: 910 + "px",
+        backgroundColor: '#f85151', display: 'block', position: 'relative',
+        borderRadius:'100px',marginTop:'-30px'
     }
 
     const newcontainer = {
         fontFamily: 'Franklin Gothic', textAlign: 'center', fontWeight: 'normal',
         fontSize: 18 + "px", paddingTop: 3 + "px",
-        paddingBottom: 3 + "px", backgroundColor: 'silver',
+        paddingBottom: 3 + "px", backgroundColor: '#9af7c3',
         display: 'block', color: "black",
     }
     const sidebaralltodo = {
@@ -201,14 +115,17 @@ function App(props) {
     const sidetododesign = {
         fontWeight: 'normal', fontSize: 18 + "px",
         paddingTop: 3 + "px", paddingBottom: 3 + "px",
-        backgroundColor: 'silver', opacity: 70 + "%",
-        display: 'block'
+       opacity: 70 + "%",
+        display: 'block',
+        backgroundColor: 'white',
+  color: 'black',
+  border: '2px solid #e7e7e7',
     }
 
     const headtodo = {
-        fontWeight: 'Bold', fontSize: 25 + "px",
+       fontSize: 25 + "px",
         paddingTop: 5 + "px", paddingBottom: 5 + "px",
-        textTransform: 'uppercase', backgroundColor: 'whitesmoke',
+        textTransform: 'uppercase',
         display: 'block'
     }
     const footer = {
@@ -245,11 +162,15 @@ function App(props) {
     const displayhrefdeletecontainer = [];
     let href;
     navbar.push(
-        <div id='navbar' style={Object.assign({}, styleBody, stylea)}>
-            <a className="active" style={Object.assign({}, stylea)} href="#">FREE SPACE</a>
-            <a className="nav-item nav-link active" style={Object.assign({}, stylea)} href="/home">Home</a>
-            <a className="nav-item nav-link" style={Object.assign({}, stylear)} href="/logout">LogOut</a>
-        </div>);
+            <div style={{width:'100%'}}>
+              <ul style={{listStyleType: 'none',margin: '-9px',padding: '0',overflow: 'hidden',border: '1px solid #e7e7e7',backgroundColor: '#343a40'}}>
+                <li style={{float:'left'}}><a style={{fontFamily: 'Verdana',width:'100%',overflow: 'auto',display: 'block',color: 'white',textAlign: 'center',padding: '14px 16px',textDecoration: 'none',}} class="active" href="/">FreeSpace</a></li>
+                <li style={{float:'left'}}><a style={{fontFamily: 'Verdana',width:'100%',overflow: 'auto',display: 'block',color: 'white',textAlign: 'center',padding: '14px 16px',textDecoration: 'none',}} href="/home">Home</a></li>
+                <li style={{float:'right'}}><a style={{fontFamily: 'Verdana',width:'90%',overflow: 'auto',display: 'block',color: 'white',textAlign: 'center',padding: '14px 16px',textDecoration: 'none',}} href="/logout">Logout</a></li>
+                <li style={{float:'right'}}><a style={{fontFamily: 'Verdana',width:'100%',overflow: 'auto',display: 'block',color: 'white',textAlign: 'center',padding: '14px 16px',paddingRight: '10px',textDecoration: 'none',}} href="#">Signed in as {foundUser.username}</a></li>
+              </ul>
+            </div>
+          );
 
     containers.forEach(container => {
         displayTodo = [];
@@ -258,7 +179,7 @@ function App(props) {
             displayTodoIds.push(
                 <div>
                     <form action={href} method="POST">
-                        <button style={deletestyle}><span>Delete</span></button>
+                        <button style={deletestyle}>X</button>
                     </form>
                 </div>
             )
@@ -280,7 +201,7 @@ function App(props) {
             <div>
                 {displayTodo}
             </div>
-            <div><button style={buttonstyle}><a href={href}>Add New Todo</a></button></div>
+            <div><button style={newtodobuttonstyle}><a style={{ color: 'black',textDecoration:'none'}}href={href}>New Todo</a></button></div>
         </div>);
     });
 
@@ -291,18 +212,22 @@ function App(props) {
     let i = 0;
     for (var container of containers) {
         display.push(<div>
-            <l1 style={headstyle}>{container.containerName}</l1>
+          <div>
+            <div style={headstyle}>{container.containerName}
+            </div>
+            
+          </div>
             <div>
                 {displayTodoAll[i]}
-            </div>
-            <div>
                 <form action={displayhrefdeletecontainer[i]} method="POST">
-                    <button style={buttonstyle}>Delete</button>
+                  <button style={deletebuttonstyle}>Delete Container</button>
                 </form>
             </div>
-        </div>)
+            
+      </div>)
         i = i + 1;
     }
+    
     href = "/home/container/new";
     return (
         <div>
@@ -310,29 +235,12 @@ function App(props) {
                 {navbar}
             </div>
             <div className='containertodo' style={sidebaralltodo}>
-                <heading style={headtodo}>Your Container</heading>
+                <heading style={headtodo}>Your Containers</heading>
                 {sidetodos}
-                <adding style={newcontainer}><a href={href}>Add New Container</a></adding>
+                <adding style={newcontainer}><a style={{textDecoration:'none'}} href={href}>Add New Container</a></adding>
             </div>
             <div>
                 {display}
-            </div>
-            <div className="footer" style={footer}>
-                {/* <div className="logo_container_footer">
-                    <img src="./logo_illume1.png" alt="logo"></img>
-                </div> */}
-                <div className="footer_third">
-                    <x1 style={help}>Need help?</x1>
-                    <a href="#" style={terms}>Terms and Conditions </a>
-                </div>
-                <div className="footer_third">
-                    <y1 style={follow}>More</y1>
-                </div>
-                <div className="footer_third">
-                    <l1 style={follow}>Follow Us</l1>
-                    <span>
-                    </span>
-                </div>
             </div>
         </div>
     )

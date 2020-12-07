@@ -195,12 +195,7 @@ router.get('/home',middleware.isLoggedIn,(req,res)=>{
                             console.log(err);
                         }
                         else{
-                            console.log("\nBefore\n")
-                            console.log("Todos: ",foundTodos);
-                            console.log("Containers: ",foundContainers);
-                            console.log("User: ",foundUser);
                             res.render("home.jsx",{foundUser: foundUser, foundContainers: foundContainers, foundTodos: foundTodos});
-                            console.log("\nAfter\n");
                         }
                     });
                 }
