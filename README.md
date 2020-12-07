@@ -1,7 +1,6 @@
 # Webtech_Project
 
 ### Note: 
-### Before you execute the code you have to first run:  
+### Before executing the code please run this command:  
 ### `export GMAILPW=root1234567*`
-### This is for the forget password route to work
-### Then you can run node app.js
+### The purpose of this command is to get access to the dummy email that I have used for the purpose of this project.
